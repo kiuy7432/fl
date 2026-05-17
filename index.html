@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LP制作サービス</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background: #f8f6f1;
+    }
+
+    .lp {
+      width: 100%;
+      margin: 0 auto;
+      overflow: hidden;
+      background: #f8f6f1;
+    }
+
+    .lp img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .final-cta {
+      padding: 56px 20px 64px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(218, 174, 76, 0.22), transparent 28%),
+        linear-gradient(135deg, #061a3e 0%, #092958 52%, #04152f 100%);
+      text-align: center;
+    }
+
+    .final-cta__lead {
+      margin: 0 0 24px;
+      color: #ffffff;
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: 0;
+      line-height: 1.45;
+    }
+
+    .final-cta__lead strong {
+      color: #efd27d;
+      font-size: 1.18em;
+      font-weight: 700;
+    }
+
+    .final-cta__button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      width: min(760px, 100%);
+      min-height: 88px;
+      padding: 20px 44px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 999px;
+      color: #061a3e;
+      background: linear-gradient(135deg, #c99528 0%, #efd27d 50%, #b98018 100%);
+      box-shadow: 0 20px 44px rgba(4, 18, 42, 0.28);
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      font-size: 30px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .final-cta__button svg {
+      flex: 0 0 auto;
+      width: 34px;
+      height: 34px;
+    }
+
+    @media (max-width: 767px) {
+      .final-cta {
+        padding: 36px 20px 44px;
+      }
+
+      .final-cta__lead {
+        margin-bottom: 18px;
+        font-size: 24px;
+      }
+
+      .final-cta__button {
+        min-height: 68px;
+        padding: 16px 24px;
+        font-size: 22px;
+        gap: 12px;
+      }
+
+      .final-cta__button svg {
+        width: 26px;
+        height: 26px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="lp">
+    <picture>
+      <source srcset="assets/top-mobile.png" media="(max-width: 767px)">
+      <img src="assets/top-desktop.png" alt="集客できるランディングページ">
+    </picture>
+    <picture>
+      <source srcset="assets/continuation-mobile.png" media="(max-width: 767px)">
+      <img src="assets/continuation-desktop.png" alt="ランディングページ追加による集客導線">
+    </picture>
+    <section class="final-cta" aria-label="資料請求">
+      <p class="final-cta__lead"><strong>月額480円〜</strong>始められる</p>
+      <a class="final-cta__button" href="https://cutt.ly/UtBeoE3u" target="_blank"　aria-label="資料請求はこちら">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3.5 6.5h17v11h-17z" fill="none" stroke="currentColor" stroke-width="1.8" />
+          <path d="M4.25 7.25 12 13l7.75-5.75" fill="none" stroke="currentColor" stroke-width="1.8" />
+        </svg>
+        <span>資料請求はこちら</span>
+      </a>
+    </section>
+    <picture>
+      <source srcset="assets/section-5x-mobile.png" media="(max-width: 767px)">
+      <img src="assets/section-5x-desktop.png" alt="ランディングページはホームページより5倍伝わります">
+    </picture>
+    <picture>
+      <source srcset="assets/section-template-mobile.png" media="(max-width: 767px)">
+      <img src="assets/section-template-desktop.png" alt="7000人の購買意欲をアップさせた型">
+    </picture>
+    <picture>
+      <source srcset="assets/lp-mobile.png" media="(max-width: 767px)">
+      <img src="assets/lp-desktop.png" alt="3,000件以上のLP制作実績">
+    </picture>
+    <picture>
+      <source srcset="assets/section-service-purpose-mobile.png" media="(max-width: 767px)">
+      <img src="assets/section-service-purpose-desktop.png" alt="サービス商品に特化したLPと様々な活用目的">
+    </picture>
+    <section class="final-cta" aria-label="資料請求">
+      <p class="final-cta__lead"><strong>月額480円〜</strong>始められる</p>
+      <a class="final-cta__button" href="https://cutt.ly/UtBeoE3u" target="_blank"　aria-label="資料請求はこちら">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3.5 6.5h17v11h-17z" fill="none" stroke="currentColor" stroke-width="1.8" />
+          <path d="M4.25 7.25 12 13l7.75-5.75" fill="none" stroke="currentColor" stroke-width="1.8" />
+        </svg>
+        <span>資料請求はこちら</span>
+      </a>
+    </section>
+  </main>
+</body>
+</html>
