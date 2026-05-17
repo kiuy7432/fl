@@ -195,28 +195,41 @@
         <input type="url" name="entry.1341512877" required>
       </div>
 
-      <div class="field">
-        <label class="lbl">検討している内容</label>
+<div class="field">
+  <label class="lbl">項目<span class="req">必須</span></label>
 
-        <!-- Googleフォームのチェックボックス仕様対策（sentinel） -->
-        <input type="hidden" name="entry.2091305958_sentinel" value="">
+  <div class="checks">
 
-        <div class="checks">
-          <label class="check">
-            <input type="checkbox" name="entry.2091305958" value="資料請求">
-            <span>資料請求</span>
-          </label>
-          <label class="check">
-            <input type="checkbox" name="entry.2091305958" value="お問い合わせ">
-            <span>お問い合わせ</span>
-          </label>
-    
-          <label class="check">
-            <input type="checkbox" name="entry.2091305958" value="その他">
-            <span>その他</span>
-          </label>
-        </div>
-      </div>
+    <label class="check">
+      <input
+        type="radio"
+        name="entry.2091305958"
+        value="資料請求"
+        required
+      >
+      <span>資料請求</span>
+    </label>
+
+    <label class="check">
+      <input
+        type="radio"
+        name="entry.2091305958"
+        value="お問い合わせ"
+      >
+      <span>お問い合わせ</span>
+    </label>
+
+    <label class="check">
+      <input
+        type="radio"
+        name="entry.2091305958"
+        value="その他"
+      >
+      <span>その他</span>
+    </label>
+
+  </div>
+</div>
 
       <div class="field">
         <label class="lbl">ご質問・お問い合わせ</label>
