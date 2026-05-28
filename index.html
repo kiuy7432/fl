@@ -29,6 +29,148 @@
       height: auto;
     }
 
+    .works-slider {
+      padding: 72px 20px 78px;
+      background: linear-gradient(180deg, #fbfaf6 0%, #f1eadc 100%);
+      color: #061a3e;
+    }
+
+    .works-slider__header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      width: min(1120px, 100%);
+      margin: 0 auto 32px;
+    }
+
+    .works-slider__eyebrow {
+      margin: 0 0 8px;
+      color: #a57618;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .works-slider__title {
+      margin: 0;
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.25;
+    }
+
+    .works-slider__controls {
+      display: flex;
+      flex: 0 0 auto;
+      gap: 12px;
+    }
+
+    .works-slider__button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border: 1px solid rgba(6, 26, 62, 0.2);
+      border-radius: 50%;
+      color: #061a3e;
+      background: #ffffff;
+      box-shadow: 0 10px 24px rgba(6, 26, 62, 0.12);
+      cursor: pointer;
+      transition: transform 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
+    }
+
+    .works-slider__button:hover {
+      transform: translateY(-2px);
+      background: #fff8e6;
+    }
+
+    .works-slider__button:disabled {
+      cursor: default;
+      opacity: 0.35;
+      transform: none;
+    }
+
+    .works-slider__button svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .works-slider__viewport {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .works-slider__track {
+      display: flex;
+      gap: 24px;
+      transition: transform 0.45s ease;
+      will-change: transform;
+    }
+
+    .works-slide {
+      flex: 0 0 calc((100% - 48px) / 3);
+      overflow: hidden;
+      border: 1px solid rgba(6, 26, 62, 0.1);
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: 0 18px 36px rgba(6, 26, 62, 0.12);
+    }
+
+    .works-slide__image {
+      overflow: hidden;
+      background: #ffffff;
+    }
+
+    .works-slide__image img {
+      width: 100%;
+      height: auto;
+    }
+
+    .works-slide__body {
+      padding: 24px 22px 26px;
+    }
+
+    .works-slide__title {
+      margin: 0;
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      font-size: 22px;
+      line-height: 1.45;
+    }
+
+    .works-slider__footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .works-slider__dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .works-slider__dot {
+      width: 10px;
+      height: 10px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(6, 26, 62, 0.26);
+      cursor: pointer;
+    }
+
+    .works-slider__dot.is-active {
+      width: 28px;
+      border-radius: 999px;
+      background: #b98018;
+    }
+
     .final-cta {
       padding: 56px 20px 64px;
       background:
@@ -79,6 +221,42 @@
     }
 
     @media (max-width: 767px) {
+      .works-slider {
+        padding: 48px 16px 54px;
+      }
+
+      .works-slider__header {
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 24px;
+        text-align: center;
+      }
+
+      .works-slider__controls {
+        order: 2;
+      }
+
+      .works-slider__button {
+        width: 44px;
+        height: 44px;
+      }
+
+      .works-slider__track {
+        gap: 16px;
+      }
+
+      .works-slide {
+        flex-basis: 100%;
+      }
+
+      .works-slide__body {
+        padding: 20px 20px 22px;
+      }
+
+      .works-slide__title {
+        font-size: 20px;
+      }
+
       .final-cta {
         padding: 36px 20px 44px;
       }
@@ -100,6 +278,12 @@
         height: 26px;
       }
     }
+
+    @media (min-width: 768px) and (max-width: 980px) {
+      .works-slide {
+        flex-basis: calc((100% - 24px) / 2);
+      }
+    }
   </style>
 </head>
 <body>
@@ -108,13 +292,90 @@
       <source srcset="assets/top-mobile.jpg" media="(max-width: 767px)">
       <img src="assets/top-desktop.jpg" alt="集客できるランディングページ">
     </picture>
+    <section class="works-slider" aria-label="制作実績サンプル" data-works-slider>
+      <div class="works-slider__header">
+        <div>
+          <p class="works-slider__eyebrow">Sample Works</p>
+          <h2 class="works-slider__title">制作実績サンプル</h2>
+        </div>
+        <div class="works-slider__controls">
+          <button class="works-slider__button" type="button" aria-label="前の制作実績" data-slider-prev>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m15 5-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <button class="works-slider__button" type="button" aria-label="次の制作実績" data-slider-next>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="works-slider__viewport">
+        <div class="works-slider__track" data-slider-track>
+          <article class="works-slide" data-slider-slide>
+            <div class="works-slide__image">
+              <img src="assets/works-manufacturing-01.jpg" alt="中小企業向け製造業パートナーのランディングページ制作サンプル" loading="lazy" decoding="async">
+            </div>
+            <div class="works-slide__body">
+              <h3 class="works-slide__title">製造業パートナーLP</h3>
+            </div>
+          </article>
+          <article class="works-slide" data-slider-slide>
+            <div class="works-slide__image">
+              <img src="assets/works-juku-student-01.jpg" alt="中高生向け個別指導塾のランディングページ制作サンプル" loading="lazy" decoding="async">
+            </div>
+            <div class="works-slide__body">
+              <h3 class="works-slide__title">中高生向け学習塾LP</h3>
+            </div>
+          </article>
+          <article class="works-slide" data-slider-slide>
+            <div class="works-slide__image">
+              <img src="assets/works-seitai-salon-02.jpg" alt="女性向け整体サロンのランディングページ制作サンプル" loading="lazy" decoding="async">
+            </div>
+            <div class="works-slide__body">
+              <h3 class="works-slide__title">女性向け整体サロンLP</h3>
+            </div>
+          </article>
+          <article class="works-slide" data-slider-slide>
+            <div class="works-slide__image">
+              <img src="assets/works-sr-office-01.jpg" alt="女性経営者向け社労士事務所のランディングページ制作サンプル" loading="lazy" decoding="async">
+            </div>
+            <div class="works-slide__body">
+              <h3 class="works-slide__title">女性経営者向け社労士LP</h3>
+            </div>
+          </article>
+          <article class="works-slide" data-slider-slide>
+            <div class="works-slide__image">
+              <img src="assets/works-beauty-salon-01.jpg" alt="大人女性向け美容サロンのランディングページ制作サンプル" loading="lazy" decoding="async">
+            </div>
+            <div class="works-slide__body">
+              <h3 class="works-slide__title">大人女性向け美容サロンLP</h3>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="works-slider__footer">
+        <button class="works-slider__button" type="button" aria-label="前の制作実績" data-slider-prev>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m15 5-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="works-slider__dots" aria-label="制作実績の表示位置" data-slider-dots></div>
+        <button class="works-slider__button" type="button" aria-label="次の制作実績" data-slider-next>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+    </section>
     <picture>
       <source srcset="assets/continuation-mobile.jpg" media="(max-width: 767px)">
       <img src="assets/continuation-desktop.jpg" alt="ランディングページ追加による集客導線">
     </picture>
     <section class="final-cta" aria-label="資料請求">
       <p class="final-cta__lead"><strong>月額480円〜</strong>始められる</p>
-      <a class="final-cta__button" href="https://cutt.ly/xtMuhLKO" target="_blank"　aria-label="資料請求はこちら">
+      <a class="final-cta__button" href="https://cutt.ly/xtMuhLKO" target="_blank" rel="noopener" aria-label="資料請求はこちら">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M3.5 6.5h17v11h-17z" fill="none" stroke="currentColor" stroke-width="1.8" />
           <path d="M4.25 7.25 12 13l7.75-5.75" fill="none" stroke="currentColor" stroke-width="1.8" />
@@ -140,7 +401,7 @@
     </picture>
     <section class="final-cta" aria-label="資料請求">
       <p class="final-cta__lead"><strong>月額480円〜</strong>始められる</p>
-      <a class="final-cta__button" href="https://cutt.ly/xtMuhLKO" target="_blank"　aria-label="資料請求はこちら">
+      <a class="final-cta__button" href="https://cutt.ly/xtMuhLKO" target="_blank" rel="noopener" aria-label="資料請求はこちら">
         <svg viewBox="0 0 24 24" aria-hidden="true">
           <path d="M3.5 6.5h17v11h-17z" fill="none" stroke="currentColor" stroke-width="1.8" />
           <path d="M4.25 7.25 12 13l7.75-5.75" fill="none" stroke="currentColor" stroke-width="1.8" />
@@ -149,5 +410,133 @@
       </a>
     </section>
   </main>
+  <script>
+    (() => {
+      const slider = document.querySelector('[data-works-slider]');
+
+      if (!slider) {
+        return;
+      }
+
+      const track = slider.querySelector('[data-slider-track]');
+      const slides = Array.from(slider.querySelectorAll('[data-slider-slide]'));
+      const prevButtons = Array.from(slider.querySelectorAll('[data-slider-prev]'));
+      const nextButtons = Array.from(slider.querySelectorAll('[data-slider-next]'));
+      const dots = slider.querySelector('[data-slider-dots]');
+      let currentIndex = 0;
+      let timerId = 0;
+      let touchStartX = 0;
+
+      const getSlidesPerView = () => {
+        if (window.matchMedia('(max-width: 767px)').matches) {
+          return 1;
+        }
+
+        if (window.matchMedia('(max-width: 980px)').matches) {
+          return 2;
+        }
+
+        return 3;
+      };
+
+      const getMaxIndex = () => Math.max(slides.length - getSlidesPerView(), 0);
+
+      slides.forEach((slide, index) => {
+        const dot = document.createElement('button');
+        dot.className = 'works-slider__dot';
+        dot.type = 'button';
+        dot.setAttribute('aria-label', `${index + 1}番目の制作実績を表示`);
+        dot.addEventListener('click', () => {
+          goTo(index);
+        });
+        dots.appendChild(dot);
+      });
+
+      const dotButtons = Array.from(dots.children);
+
+      const update = (nextIndex = currentIndex) => {
+        const maxIndex = getMaxIndex();
+        const slideWidth = slides[0].getBoundingClientRect().width;
+        const trackStyle = window.getComputedStyle(track);
+        const gap = parseFloat(trackStyle.columnGap || trackStyle.gap) || 0;
+
+        currentIndex = Math.min(Math.max(nextIndex, 0), maxIndex);
+        track.style.transform = `translateX(${-currentIndex * (slideWidth + gap)}px)`;
+
+        slides.forEach((slide, index) => {
+          const visible = index >= currentIndex && index < currentIndex + getSlidesPerView();
+          slide.setAttribute('aria-hidden', String(!visible));
+        });
+
+        dotButtons.forEach((dot, index) => {
+          dot.hidden = index > maxIndex;
+          dot.classList.toggle('is-active', index === currentIndex);
+          dot.setAttribute('aria-current', String(index === currentIndex));
+        });
+
+        prevButtons.forEach((button) => {
+          button.disabled = currentIndex === 0;
+        });
+        nextButtons.forEach((button) => {
+          button.disabled = currentIndex === maxIndex;
+        });
+      };
+
+      const stop = () => {
+        window.clearInterval(timerId);
+      };
+
+      const start = () => {
+        stop();
+        timerId = window.setInterval(() => {
+          update(currentIndex >= getMaxIndex() ? 0 : currentIndex + 1);
+        }, 4500);
+      };
+
+      const goTo = (index) => {
+        update(index);
+        start();
+      };
+
+      prevButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          goTo(currentIndex - 1);
+        });
+      });
+
+      nextButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          goTo(currentIndex + 1);
+        });
+      });
+
+      slider.addEventListener('mouseenter', stop);
+      slider.addEventListener('mouseleave', start);
+      slider.addEventListener('focusin', stop);
+      slider.addEventListener('focusout', start);
+
+      slider.addEventListener('touchstart', (event) => {
+        touchStartX = event.touches[0].clientX;
+      }, { passive: true });
+
+      slider.addEventListener('touchend', (event) => {
+        const touchEndX = event.changedTouches[0].clientX;
+        const diff = touchStartX - touchEndX;
+
+        if (Math.abs(diff) < 40) {
+          return;
+        }
+
+        goTo(currentIndex + (diff > 0 ? 1 : -1));
+      });
+
+      window.addEventListener('resize', () => {
+        update();
+      });
+
+      update(0);
+      start();
+    })();
+  </script>
 </body>
 </html>
