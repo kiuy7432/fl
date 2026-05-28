@@ -33,6 +33,7 @@
       padding: 72px 20px 78px;
       background: linear-gradient(180deg, #fbfaf6 0%, #f1eadc 100%);
       color: #061a3e;
+      touch-action: manipulation;
     }
 
     .works-slider__header {
@@ -79,6 +80,9 @@
       background: #ffffff;
       box-shadow: 0 10px 24px rgba(6, 26, 62, 0.12);
       cursor: pointer;
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
       transition: transform 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
     }
 
@@ -87,7 +91,8 @@
       background: #fff8e6;
     }
 
-    .works-slider__button:disabled {
+    .works-slider__button:disabled,
+    .works-slider__button[aria-disabled="true"] {
       cursor: default;
       opacity: 0.35;
       transform: none;
@@ -163,6 +168,8 @@
       border-radius: 50%;
       background: rgba(6, 26, 62, 0.26);
       cursor: pointer;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .works-slider__dot.is-active {
@@ -449,6 +456,10 @@
         dot.addEventListener('click', () => {
           goTo(index);
         });
+        dot.addEventListener('touchend', (event) => {
+          event.preventDefault();
+          goTo(index);
+        }, { passive: false });
         dots.appendChild(dot);
       });
 
@@ -475,10 +486,10 @@
         });
 
         prevButtons.forEach((button) => {
-          button.disabled = currentIndex === 0;
+          button.setAttribute('aria-disabled', String(currentIndex === 0));
         });
         nextButtons.forEach((button) => {
-          button.disabled = currentIndex === maxIndex;
+          button.setAttribute('aria-disabled', String(currentIndex === maxIndex));
         });
       };
 
@@ -498,14 +509,31 @@
         start();
       };
 
+      const bindSliderButton = (button, callback) => {
+        const handleTap = (event) => {
+          if (button.getAttribute('aria-disabled') === 'true') {
+            event.preventDefault();
+            return;
+          }
+
+          callback();
+        };
+
+        button.addEventListener('click', handleTap);
+        button.addEventListener('touchend', (event) => {
+          event.preventDefault();
+          handleTap(event);
+        }, { passive: false });
+      };
+
       prevButtons.forEach((button) => {
-        button.addEventListener('click', () => {
+        bindSliderButton(button, () => {
           goTo(currentIndex - 1);
         });
       });
 
       nextButtons.forEach((button) => {
-        button.addEventListener('click', () => {
+        bindSliderButton(button, () => {
           goTo(currentIndex + 1);
         });
       });
