@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
   <title>LP制作サービス</title>
   <style>
     * {
@@ -458,6 +459,7 @@
         });
         dot.addEventListener('touchend', (event) => {
           event.preventDefault();
+          event.stopPropagation();
           goTo(index);
         }, { passive: false });
         dots.appendChild(dot);
@@ -522,6 +524,7 @@
         button.addEventListener('click', handleTap);
         button.addEventListener('touchend', (event) => {
           event.preventDefault();
+          event.stopPropagation();
           handleTap(event);
         }, { passive: false });
       };
