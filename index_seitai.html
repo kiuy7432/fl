@@ -1,0 +1,1010 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>整体院・整体サロン向けLP制作サービス</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background: #f8f6f1;
+    }
+
+    .lp {
+      width: 100%;
+      margin: 0 auto;
+      overflow: hidden;
+      background: #f8f6f1;
+    }
+
+    .lp img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .works-slider {
+      padding: 72px 20px 78px;
+      background: linear-gradient(180deg, #fbfaf6 0%, #f1eadc 100%);
+      color: #061a3e;
+      touch-action: manipulation;
+    }
+
+    .works-slider__header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      width: min(1120px, 100%);
+      margin: 0 auto 32px;
+    }
+
+    .works-slider__eyebrow {
+      margin: 0 0 8px;
+      color: #a57618;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    .works-slider__title {
+      margin: 0;
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      font-size: clamp(30px, 4vw, 48px);
+      line-height: 1.25;
+    }
+
+    .works-slider__controls {
+      display: flex;
+      flex: 0 0 auto;
+      gap: 12px;
+    }
+
+    .works-slider__button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      border: 1px solid rgba(6, 26, 62, 0.2);
+      border-radius: 50%;
+      color: #061a3e;
+      background: #ffffff;
+      box-shadow: 0 10px 24px rgba(6, 26, 62, 0.12);
+      cursor: pointer;
+      touch-action: manipulation;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      transition: transform 0.2s ease, background-color 0.2s ease, opacity 0.2s ease;
+    }
+
+    .works-slider__button:hover {
+      transform: translateY(-2px);
+      background: #fff8e6;
+    }
+
+    .works-slider__button:disabled,
+    .works-slider__button[aria-disabled="true"] {
+      cursor: default;
+      opacity: 0.35;
+      transform: none;
+    }
+
+    .works-slider__button svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .works-slider__viewport {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .works-slider__track {
+      display: flex;
+      gap: 24px;
+      transition: transform 0.45s ease;
+      will-change: transform;
+    }
+
+    .works-slide {
+      flex: 0 0 calc((100% - 48px) / 3);
+      overflow: hidden;
+      border: 1px solid rgba(6, 26, 62, 0.1);
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: 0 18px 36px rgba(6, 26, 62, 0.12);
+    }
+
+    .works-slide__image {
+      overflow: hidden;
+      background: #ffffff;
+    }
+
+    .works-slide__image img {
+      width: 100%;
+      height: auto;
+    }
+
+    .works-slide__body {
+      padding: 24px 22px 26px;
+    }
+
+    .works-slide__title {
+      margin: 0;
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      font-size: 22px;
+      line-height: 1.45;
+    }
+
+    .works-slider__footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .works-slider__dots {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .works-slider__dot {
+      width: 10px;
+      height: 10px;
+      padding: 0;
+      border: 0;
+      border-radius: 50%;
+      background: rgba(6, 26, 62, 0.26);
+      cursor: pointer;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .works-slider__dot.is-active {
+      width: 28px;
+      border-radius: 999px;
+      background: #b98018;
+    }
+
+    .seitai-section {
+      padding: 78px 20px;
+      color: #061a3e;
+      background: #fbfaf6;
+    }
+
+    .seitai-section--warm {
+      background: linear-gradient(180deg, #fbfaf6 0%, #f2eadb 100%);
+    }
+
+    .seitai-section--white {
+      background: #ffffff;
+    }
+
+    .seitai-section__inner {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+    }
+
+    .seitai-section__header {
+      max-width: 860px;
+      margin: 0 auto 38px;
+      text-align: center;
+    }
+
+    .seitai-section__eyebrow {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      margin: 0 0 16px;
+      padding: 6px 18px;
+      border: 1px solid rgba(185, 128, 24, 0.42);
+      border-radius: 999px;
+      color: #8a610f;
+      background: rgba(239, 210, 125, 0.18);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .seitai-section__title {
+      margin: 0;
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      font-size: 42px;
+      line-height: 1.35;
+    }
+
+    .seitai-section__title strong {
+      color: #789157;
+      font-weight: 700;
+    }
+
+    .seitai-section__lead {
+      margin: 18px auto 0;
+      max-width: 760px;
+      color: #33405a;
+      font-size: 18px;
+      line-height: 1.9;
+    }
+
+    .seitai-layout {
+      display: grid;
+      align-items: center;
+      grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+      gap: 34px;
+    }
+
+    .seitai-copy {
+      display: grid;
+      gap: 18px;
+    }
+
+    .seitai-copy__note {
+      margin: 0;
+      color: #33405a;
+      font-size: 17px;
+      line-height: 1.9;
+    }
+
+    .browser-mock {
+      overflow: hidden;
+      border: 1px solid rgba(6, 26, 62, 0.12);
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: 0 18px 36px rgba(6, 26, 62, 0.14);
+    }
+
+    .browser-mock__bar {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 34px;
+      padding: 0 14px;
+      border-bottom: 1px solid rgba(6, 26, 62, 0.08);
+      background: #f6f3eb;
+    }
+
+    .browser-mock__bar span {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #b98018;
+      opacity: 0.72;
+    }
+
+    .browser-mock__image {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #f7f3ea;
+    }
+
+    .browser-mock__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .flow-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .flow-card,
+    .seitai-card,
+    .case-card,
+    .purpose-card {
+      border: 1px solid rgba(6, 26, 62, 0.1);
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: 0 16px 32px rgba(6, 26, 62, 0.1);
+    }
+
+    .flow-card {
+      padding: 24px;
+    }
+
+    .flow-card__label {
+      display: inline-flex;
+      margin-bottom: 12px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      color: #ffffff;
+      background: #061a3e;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.45;
+    }
+
+    .flow-card__title,
+    .seitai-card__title,
+    .case-card__title,
+    .purpose-card__title {
+      margin: 0;
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      font-size: 22px;
+      line-height: 1.45;
+    }
+
+    .flow-card__text,
+    .seitai-card__text,
+    .case-card__text,
+    .purpose-card__text {
+      margin: 12px 0 0;
+      color: #33405a;
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .comparison-grid {
+      display: grid;
+      align-items: center;
+      grid-template-columns: minmax(0, 1fr) 152px minmax(0, 1fr);
+      gap: 24px;
+    }
+
+    .seitai-card {
+      min-height: 100%;
+      padding: 30px;
+    }
+
+    .seitai-card--accent {
+      border-color: rgba(120, 145, 87, 0.3);
+      background: linear-gradient(180deg, #ffffff 0%, #f4f7ef 100%);
+    }
+
+    .comparison-badge {
+      display: grid;
+      place-items: center;
+      width: 152px;
+      height: 152px;
+      border-radius: 50%;
+      color: #ffffff;
+      background: #061a3e;
+      box-shadow: 0 16px 34px rgba(6, 26, 62, 0.2);
+      text-align: center;
+    }
+
+    .comparison-badge strong {
+      display: block;
+      color: #efd27d;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 56px;
+      line-height: 1;
+    }
+
+    .comparison-badge span {
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.4;
+    }
+
+    .template-list {
+      display: grid;
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .template-list li {
+      display: grid;
+      grid-template-columns: 52px minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+      padding: 18px;
+      border: 1px solid rgba(6, 26, 62, 0.1);
+      border-radius: 8px;
+      background: #ffffff;
+    }
+
+    .template-list__num {
+      display: grid;
+      place-items: center;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      color: #061a3e;
+      background: #efd27d;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    .template-list h3 {
+      margin: 0 0 6px;
+      font-size: 19px;
+      line-height: 1.45;
+    }
+
+    .template-list p {
+      margin: 0;
+      color: #33405a;
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    .case-grid,
+    .purpose-grid {
+      display: grid;
+      gap: 20px;
+    }
+
+    .case-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .purpose-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .case-card,
+    .purpose-card {
+      overflow: hidden;
+    }
+
+    .case-card__image {
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #f7f3ea;
+    }
+
+    .case-card__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .case-card__body,
+    .purpose-card {
+      padding: 24px;
+    }
+
+    .purpose-card__icon {
+      display: grid;
+      place-items: center;
+      width: 56px;
+      height: 56px;
+      margin-bottom: 18px;
+      border-radius: 50%;
+      color: #061a3e;
+      background: #efd27d;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .final-cta {
+      padding: 56px 20px 64px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(218, 174, 76, 0.22), transparent 28%),
+        linear-gradient(135deg, #061a3e 0%, #092958 52%, #04152f 100%);
+      text-align: center;
+    }
+
+    .final-cta__lead {
+      margin: 0 0 24px;
+      color: #ffffff;
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      font-size: 36px;
+      font-weight: 700;
+      letter-spacing: 0;
+      line-height: 1.45;
+    }
+
+    .final-cta__lead strong {
+      color: #efd27d;
+      font-size: 1.18em;
+      font-weight: 700;
+    }
+
+    .final-cta__button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      width: min(760px, 100%);
+      min-height: 88px;
+      padding: 20px 44px;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      border-radius: 999px;
+      color: #061a3e;
+      background: linear-gradient(135deg, #c99528 0%, #efd27d 50%, #b98018 100%);
+      box-shadow: 0 20px 44px rgba(4, 18, 42, 0.28);
+      font-family: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", serif;
+      font-size: 30px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .final-cta__button svg {
+      flex: 0 0 auto;
+      width: 34px;
+      height: 34px;
+    }
+
+    @media (max-width: 767px) {
+      .works-slider {
+        padding: 48px 16px 54px;
+      }
+
+      .works-slider__header {
+        align-items: center;
+        flex-direction: column;
+        margin-bottom: 24px;
+        text-align: center;
+      }
+
+      .works-slider__controls {
+        order: 2;
+      }
+
+      .works-slider__button {
+        width: 44px;
+        height: 44px;
+      }
+
+      .works-slider__track {
+        gap: 16px;
+      }
+
+      .works-slide {
+        flex-basis: 100%;
+      }
+
+      .works-slide__body {
+        padding: 20px 20px 22px;
+      }
+
+      .works-slide__title {
+        font-size: 20px;
+      }
+
+      .seitai-section {
+        padding: 52px 16px;
+      }
+
+      .seitai-section__header {
+        margin-bottom: 28px;
+      }
+
+      .seitai-section__title {
+        font-size: 30px;
+      }
+
+      .seitai-section__lead {
+        font-size: 16px;
+        line-height: 1.8;
+      }
+
+      .seitai-layout,
+      .comparison-grid,
+      .flow-grid,
+      .case-grid,
+      .purpose-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .seitai-layout {
+        gap: 26px;
+      }
+
+      .flow-grid,
+      .case-grid,
+      .purpose-grid {
+        gap: 16px;
+      }
+
+      .comparison-badge {
+        width: 132px;
+        height: 132px;
+        margin: 0 auto;
+      }
+
+      .comparison-badge strong {
+        font-size: 48px;
+      }
+
+      .flow-card,
+      .seitai-card,
+      .case-card__body,
+      .purpose-card {
+        padding: 20px;
+      }
+
+      .template-list li {
+        grid-template-columns: 44px minmax(0, 1fr);
+        gap: 12px;
+        padding: 16px;
+      }
+
+      .template-list__num {
+        width: 44px;
+        height: 44px;
+        font-size: 19px;
+      }
+
+      .final-cta {
+        padding: 36px 20px 44px;
+      }
+
+      .final-cta__lead {
+        margin-bottom: 18px;
+        font-size: 24px;
+      }
+
+      .final-cta__button {
+        min-height: 68px;
+        padding: 16px 24px;
+        font-size: 22px;
+        gap: 12px;
+      }
+
+      .final-cta__button svg {
+        width: 26px;
+        height: 26px;
+      }
+    }
+
+    @media (min-width: 768px) and (max-width: 980px) {
+      .works-slide {
+        flex-basis: calc((100% - 24px) / 2);
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="lp">
+    <picture>
+      <source srcset="assets/seitai/top-mobile.jpg" media="(max-width: 767px)">
+      <img src="assets/seitai/top-desktop.jpg" alt="整体院・整体サロン向けの集客できるランディングページ">
+    </picture>
+    <section class="works-slider" aria-label="整体院・整体サロン向け制作サンプル" data-works-slider>
+      <div class="works-slider__header">
+        <div>
+          <p class="works-slider__eyebrow">Sample Works</p>
+          <h2 class="works-slider__title">整体サロン向け制作サンプル</h2>
+        </div>
+        <div class="works-slider__controls">
+          <button class="works-slider__button" type="button" aria-label="前の制作実績" data-slider-prev>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m15 5-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <button class="works-slider__button" type="button" aria-label="次の制作実績" data-slider-next>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </div>
+      </div>
+      <div class="works-slider__viewport">
+        <div class="works-slider__track" data-slider-track>
+          <article class="works-slide" data-slider-slide>
+            <div class="works-slide__image">
+              <img src="assets/seitai/works-seitai-first-trial-01.jpg" alt="初回体験向け整体サロンのランディングページ制作サンプル" loading="lazy" decoding="async">
+            </div>
+            <div class="works-slide__body">
+              <h3 class="works-slide__title">初回体験向け整体サロンLP</h3>
+            </div>
+          </article>
+          <article class="works-slide" data-slider-slide>
+            <div class="works-slide__image">
+              <img src="assets/seitai/works-seitai-lowback-01.jpg" alt="腰痛専門整体サロンのランディングページ制作サンプル" loading="lazy" decoding="async">
+            </div>
+            <div class="works-slide__body">
+              <h3 class="works-slide__title">腰痛専門整体サロンLP</h3>
+            </div>
+          </article>
+          <article class="works-slide" data-slider-slide>
+            <div class="works-slide__image">
+              <img src="assets/seitai/works-seitai-salon-02.jpg" alt="女性向け整体サロンのランディングページ制作サンプル" loading="lazy" decoding="async">
+            </div>
+            <div class="works-slide__body">
+              <h3 class="works-slide__title">女性向け整体サロンLP</h3>
+            </div>
+          </article>
+          <article class="works-slide" data-slider-slide>
+            <div class="works-slide__image">
+              <img src="assets/seitai/works-seitai-postpartum-pelvis-01.jpg" alt="産後骨盤矯正整体サロンのランディングページ制作サンプル" loading="lazy" decoding="async">
+            </div>
+            <div class="works-slide__body">
+              <h3 class="works-slide__title">産後骨盤矯正整体サロンLP</h3>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="works-slider__footer">
+        <button class="works-slider__button" type="button" aria-label="前の制作実績" data-slider-prev>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m15 5-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+        <div class="works-slider__dots" aria-label="制作実績の表示位置" data-slider-dots></div>
+        <button class="works-slider__button" type="button" aria-label="次の制作実績" data-slider-next>
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m9 5 7 7-7 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </button>
+      </div>
+    </section>
+    <picture>
+      <source srcset="assets/seitai/continuation-mobile.jpg" media="(max-width: 767px)">
+      <img src="assets/seitai/continuation-desktop.jpg" alt="整体院サイトに予約につながるランディングページを追加">
+    </picture>
+    <section class="final-cta" aria-label="資料請求">
+      <p class="final-cta__lead"><strong>月額480円〜</strong>始められるLP制作</p>
+      <a class="final-cta__button" href="https://cutt.ly/xtMuhLKO" target="_blank" rel="noopener" aria-label="資料請求はこちら">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3.5 6.5h17v11h-17z" fill="none" stroke="currentColor" stroke-width="1.8" />
+          <path d="M4.25 7.25 12 13l7.75-5.75" fill="none" stroke="currentColor" stroke-width="1.8" />
+        </svg>
+        <span>資料請求はこちら</span>
+      </a>
+    </section>
+    <picture>
+      <source srcset="assets/seitai/section-5x-mobile.jpg" media="(max-width: 767px)">
+      <img src="assets/seitai/section-5x-desktop.jpg" alt="整体LPはホームページより伝わりやすい">
+    </picture>
+
+    <picture>
+      <source srcset="assets/seitai/section-template-mobile.jpg" media="(max-width: 767px)">
+      <img src="assets/seitai/section-template-desktop.jpg" alt="整体LPは7000人の来院意欲を高めた型を使用します">
+    </picture>
+
+    <section class="seitai-section seitai-section--white" aria-label="整体LP制作実績">
+      <div class="seitai-section__inner">
+        <div class="seitai-section__header">
+          <p class="seitai-section__eyebrow">Case Ideas</p>
+          <h2 class="seitai-section__title">整体院・サロン向けLPに活かせる<br><strong>制作ノウハウ</strong></h2>
+          <p class="seitai-section__lead">整体、リラクゼーション、美容系サロンなどの訴求に合わせて、写真・コピー・予約ボタンまで一貫して設計します。</p>
+        </div>
+        <div class="case-grid">
+          <article class="case-card">
+            <div class="case-card__image">
+              <img src="assets/seitai/works-seitai-salon-02.jpg" alt="女性向け整体サロンLPの制作サンプル" loading="lazy" decoding="async">
+            </div>
+            <div class="case-card__body">
+              <h3 class="case-card__title">姿勢改善LP</h3>
+              <p class="case-card__text">見た目の印象や日常のつらさに寄り添い、改善後の軽さを伝えます。</p>
+            </div>
+          </article>
+          <article class="case-card">
+            <div class="case-card__image">
+              <img src="assets/seitai/works-seitai-lowback-01.jpg" alt="腰痛専門整体サロンLPの制作サンプル" loading="lazy" decoding="async">
+            </div>
+            <div class="case-card__body">
+              <h3 class="case-card__title">肩・首ケアLP</h3>
+              <p class="case-card__text">デスクワークや家事で疲れた方に向けて、安心して相談できる印象を作ります。</p>
+            </div>
+          </article>
+          <article class="case-card">
+            <div class="case-card__image">
+              <img src="assets/seitai/works-seitai-first-trial-01.jpg" alt="初回体験向け整体サロンLPの制作サンプル" loading="lazy" decoding="async">
+            </div>
+            <div class="case-card__body">
+              <h3 class="case-card__title">初回体験LP</h3>
+              <p class="case-card__text">価格、予約方法、来店の流れをまとめ、初めての方の不安を減らします。</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="seitai-section seitai-section--warm" aria-label="整体メニュー別LP活用">
+      <div class="seitai-section__inner">
+        <div class="seitai-section__header">
+          <p class="seitai-section__eyebrow">Menu Landing Pages</p>
+          <h2 class="seitai-section__title">整体メニューごとに<br><strong>LPを使い分け</strong>できます</h2>
+          <p class="seitai-section__lead">広告、SNS、チラシ、LINE配信など、入口ごとに見せるページを分けることで、予約までの距離を短くします。</p>
+        </div>
+        <div class="purpose-grid">
+          <article class="purpose-card">
+            <div class="purpose-card__icon">01</div>
+            <h3 class="purpose-card__title">肩こり・首こり</h3>
+            <p class="purpose-card__text">つらさの共感から施術の流れまで、相談しやすく伝えます。</p>
+          </article>
+          <article class="purpose-card">
+            <div class="purpose-card__icon">02</div>
+            <h3 class="purpose-card__title">姿勢改善</h3>
+            <p class="purpose-card__text">見た目と不調の両面から、改善への期待感を作ります。</p>
+          </article>
+          <article class="purpose-card">
+            <div class="purpose-card__icon">03</div>
+            <h3 class="purpose-card__title">骨盤矯正</h3>
+            <p class="purpose-card__text">産後ケアや体のバランスに関心がある方へ、安心感を届けます。</p>
+          </article>
+          <article class="purpose-card">
+            <div class="purpose-card__icon">04</div>
+            <h3 class="purpose-card__title">女性専用サロン</h3>
+            <p class="purpose-card__text">空間、スタッフ、予約制の魅力をやさしいトーンで見せます。</p>
+          </article>
+          <article class="purpose-card">
+            <div class="purpose-card__icon">05</div>
+            <h3 class="purpose-card__title">初回体験</h3>
+            <p class="purpose-card__text">限定価格や体験内容を明確にして、申し込みを後押しします。</p>
+          </article>
+          <article class="purpose-card">
+            <div class="purpose-card__icon">06</div>
+            <h3 class="purpose-card__title">スタッフ募集</h3>
+            <p class="purpose-card__text">院の雰囲気や働き方を伝え、採用ページとしても活用できます。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+    <section class="final-cta" aria-label="資料請求">
+      <p class="final-cta__lead"><strong>月額480円〜</strong>始められるLP制作</p>
+      <a class="final-cta__button" href="https://cutt.ly/xtMuhLKO" target="_blank" rel="noopener" aria-label="資料請求はこちら">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3.5 6.5h17v11h-17z" fill="none" stroke="currentColor" stroke-width="1.8" />
+          <path d="M4.25 7.25 12 13l7.75-5.75" fill="none" stroke="currentColor" stroke-width="1.8" />
+        </svg>
+        <span>資料請求はこちら</span>
+      </a>
+    </section>
+  </main>
+  <script>
+    (() => {
+      const slider = document.querySelector('[data-works-slider]');
+
+      if (!slider) {
+        return;
+      }
+
+      const track = slider.querySelector('[data-slider-track]');
+      const slides = Array.from(slider.querySelectorAll('[data-slider-slide]'));
+      const prevButtons = Array.from(slider.querySelectorAll('[data-slider-prev]'));
+      const nextButtons = Array.from(slider.querySelectorAll('[data-slider-next]'));
+      const dots = slider.querySelector('[data-slider-dots]');
+      let currentIndex = 0;
+      let timerId = 0;
+      let touchStartX = 0;
+
+      const getSlidesPerView = () => {
+        if (window.matchMedia('(max-width: 767px)').matches) {
+          return 1;
+        }
+
+        if (window.matchMedia('(max-width: 980px)').matches) {
+          return 2;
+        }
+
+        return 3;
+      };
+
+      const getMaxIndex = () => Math.max(slides.length - getSlidesPerView(), 0);
+
+      slides.forEach((slide, index) => {
+        const dot = document.createElement('button');
+        dot.className = 'works-slider__dot';
+        dot.type = 'button';
+        dot.setAttribute('aria-label', `${index + 1}番目の制作実績を表示`);
+        dot.addEventListener('click', () => {
+          goTo(index);
+        });
+        dot.addEventListener('touchend', (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          goTo(index);
+        }, { passive: false });
+        dots.appendChild(dot);
+      });
+
+      const dotButtons = Array.from(dots.children);
+
+      const update = (nextIndex = currentIndex) => {
+        const maxIndex = getMaxIndex();
+        const slideWidth = slides[0].getBoundingClientRect().width;
+        const trackStyle = window.getComputedStyle(track);
+        const gap = parseFloat(trackStyle.columnGap || trackStyle.gap) || 0;
+
+        currentIndex = Math.min(Math.max(nextIndex, 0), maxIndex);
+        track.style.transform = `translateX(${-currentIndex * (slideWidth + gap)}px)`;
+
+        slides.forEach((slide, index) => {
+          const visible = index >= currentIndex && index < currentIndex + getSlidesPerView();
+          slide.setAttribute('aria-hidden', String(!visible));
+        });
+
+        dotButtons.forEach((dot, index) => {
+          dot.hidden = index > maxIndex;
+          dot.classList.toggle('is-active', index === currentIndex);
+          dot.setAttribute('aria-current', String(index === currentIndex));
+        });
+
+        prevButtons.forEach((button) => {
+          button.setAttribute('aria-disabled', String(currentIndex === 0));
+        });
+        nextButtons.forEach((button) => {
+          button.setAttribute('aria-disabled', String(currentIndex === maxIndex));
+        });
+      };
+
+      const stop = () => {
+        window.clearInterval(timerId);
+      };
+
+      const start = () => {
+        stop();
+        timerId = window.setInterval(() => {
+          update(currentIndex >= getMaxIndex() ? 0 : currentIndex + 1);
+        }, 4500);
+      };
+
+      const goTo = (index) => {
+        update(index);
+        start();
+      };
+
+      const bindSliderButton = (button, callback) => {
+        const handleTap = (event) => {
+          if (button.getAttribute('aria-disabled') === 'true') {
+            event.preventDefault();
+            return;
+          }
+
+          callback();
+        };
+
+        button.addEventListener('click', handleTap);
+        button.addEventListener('touchend', (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          handleTap(event);
+        }, { passive: false });
+      };
+
+      prevButtons.forEach((button) => {
+        bindSliderButton(button, () => {
+          goTo(currentIndex - 1);
+        });
+      });
+
+      nextButtons.forEach((button) => {
+        bindSliderButton(button, () => {
+          goTo(currentIndex + 1);
+        });
+      });
+
+      slider.addEventListener('mouseenter', stop);
+      slider.addEventListener('mouseleave', start);
+      slider.addEventListener('focusin', stop);
+      slider.addEventListener('focusout', start);
+
+      slider.addEventListener('touchstart', (event) => {
+        touchStartX = event.touches[0].clientX;
+      }, { passive: true });
+
+      slider.addEventListener('touchend', (event) => {
+        const touchEndX = event.changedTouches[0].clientX;
+        const diff = touchStartX - touchEndX;
+
+        if (Math.abs(diff) < 40) {
+          return;
+        }
+
+        goTo(currentIndex + (diff > 0 ? 1 : -1));
+      });
+
+      window.addEventListener('resize', () => {
+        update();
+      });
+
+      update(0);
+      start();
+    })();
+  </script>
+</body>
+</html>
